@@ -27,9 +27,9 @@ E também nos lembrar de passar o protetor solar! ;-)
 
 2. Módulo de Sensor de Luz Ultravioleta Gy-VEML6070 com interface I2C, como esse das fotos:
 <p float="center">
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/SENSOR1.png" width="200" height="150">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/SENSOR1.png" width="150" height="150">
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/SENSOR2.png" width="150" height="150">
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/SENSOR3.png" width="200" height="150">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/SENSOR3.png" width="250" height="150">
   </p>
   
 3. Protoboard
