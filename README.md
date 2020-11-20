@@ -32,8 +32,8 @@ E também nos lembrar de passar o protetor solar! ;-)
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/SENSOR3.png" width="250" height="150">
   </p>
   
-3. Protoboard
-4. 4 fios coloridos
+3. Protoboard (placa branca na foto do projeto)
+4. 4 JUMPERS (fios coloridos na foto do projeto)
 5. Cabo USB x Mini USB
 6. Fonte de bateria 5V, como por exemplo um powerbank
 
