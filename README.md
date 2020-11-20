@@ -18,7 +18,7 @@ E também nos lembrar de passar o protetor solar! ;-)
 
 ### **Componentes**:
 1. Módulo de Wifi Esp8266 Nodemcu V3 Lolin Com Chip Ch340g
-![Placa1](https://github.com/carimeb/LUVproject/blob/main/images/PLACA1.png =100x20)
+![Placa1](https://github.com/carimeb/LUVproject/blob/main/images/PLACA1.png){:height="50%" width="50%"}
 ![Placa2](https://github.com/carimeb/LUVproject/blob/main/images/PLACA2.png)
 ![Placa3](https://github.com/carimeb/LUVproject/blob/main/images/PLACA3.png)
 
