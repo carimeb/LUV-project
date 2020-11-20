@@ -32,12 +32,12 @@ Todos encontrados com facilidade em sites de eletrônicos ou lojas anunciantes.
 
 Certifique-se de ter instalado em seu editor de texto o IDE PlatformIO, uma plataforma profissional colaborativa para desenvolvimento de sistemas embarcados, bem como as seguintes bibliotecas:
 
-* [Arduino.h](Link) , a biblioteca default do Arduino
-* [ESP8266WiFi.h] (Link), para o wi-fi da placa
-* ESP8266mDNS.h    para troca de mensagens DNS
-* ESP8266HTTPClient.h
+* [Arduino.h](https://github.com/esp8266/Arduino), a biblioteca default do Arduino usada também pela placa Nodencu
+* [ESP8266WiFi.h](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html), para o wi-fi da placa
+* [ESP8266mDNS.h](https://arduino-esp8266.readthedocs.io/en/latest/libraries.html#mdns-and-dns-sd-responder-esp8266mdns-library) para troca de mensagens DNS
+* [ESP8266HTTPClient.h]()
 * WiFiClientSecure.h
-* WiFiUdp.h, para troca de mensagens UDP
+* [WiFiUdp.h](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/udp-class.html?highlight=wifiudp), para troca de mensagens UDP
 * Wire.h, I2C
 * Adafruit_VEML6070.h, para o sensor UV
 * NTPClient.h
