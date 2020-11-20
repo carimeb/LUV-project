@@ -16,15 +16,22 @@ E também nos lembrar de passar o protetor solar! ;-)
 
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/LUVIMAGE.jpeg" width="332" height="602">
 
+
 ### **Componentes**:
-1. Módulo de Wifi Esp8266 Nodemcu V3 Lolin Com Chip Ch340g
+1. Módulo de Wifi Esp8266 Nodemcu V3 Lolin Com Chip Ch340g, como essa das fotos:
 <p float="center">
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA1.png" width="150" height="150">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA1.png" width="200" height="150">
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA2.png" width="150" height="150">
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA3.png" width="150" height="150">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA3.png" width="200" height="150">
   </p>
 
-2. Módulo de Sensor de Luz Ultravioleta Gy-VEML6070 com interface I2C
+2. Módulo de Sensor de Luz Ultravioleta Gy-VEML6070 com interface I2C, como esse das fotos:
+<p float="center">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/SENSOR1.png" width="200" height="150">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/SENSOR2.png" width="150" height="150">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/SENSOR3.png" width="200" height="150">
+  </p>
+  
 3. Protoboard
 4. 4 fios coloridos
 5. Cabo USB x Mini USB
