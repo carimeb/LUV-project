@@ -18,7 +18,7 @@ E também nos lembrar de passar o protetor solar! ;-)
 
 ### **Componentes**:
 1. Módulo de Wifi Esp8266 Nodemcu V3 Lolin Com Chip Ch340g
-2. Módulo de Sensor de Luz Ultravioleta I2c Gy-VemL6070
+2. Módulo de Sensor de Luz Ultravioleta Gy-VEML6070 com interface I2C
 3. Protoboard
 4. 4 fios coloridos
 5. Cabo USB x Mini USB 
