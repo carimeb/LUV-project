@@ -13,14 +13,14 @@ e salvo em uma base de dados no ThingSpeak. Lá, ele é comparado com o índice 
 que muitas vezes é pago por grandes produções agrícolas ou fazendas criadoras de animais em regiões remotas do país, mas não tem como avaliá-lo. 
 E também nos lembrar de passar o protetor solar! ;-)
 
-![Image of LuV](https://github.com/carimeb/LUVproject/blob/main/images/LUVIMAGE.jpeg)
 
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/LUVIMAGE.jpeg" width="332" height="602">
 
 ### **Componentes**:
 1. Módulo de Wifi Esp8266 Nodemcu V3 Lolin Com Chip Ch340g
-![Placa1](https://github.com/carimeb/LUVproject/blob/main/images/PLACA1.png){:height="50%" width="50%"}
-![Placa2](https://github.com/carimeb/LUVproject/blob/main/images/PLACA2.png)
-![Placa3](https://github.com/carimeb/LUVproject/blob/main/images/PLACA3.png)
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA1.png" width="100" height="100">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA2.png" width="100" height="100">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA3.png" width="100" height="100">
 
 2. Módulo de Sensor de Luz Ultravioleta Gy-VEML6070 com interface I2C
 3. Protoboard
