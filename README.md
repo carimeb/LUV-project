@@ -1,5 +1,5 @@
 # LuV - Light UV Project
-A portable IoT device that sends a Telegram message informing the measured UV index and is connected to a database in [ThingSpeak](https://thingspeak.com/).
+_A portable IoT device that sends a Telegram message informing the measured UV index and is connected to a database in [ThingSpeak](https://thingspeak.com/)._
 
 A incidência de raios ultravioletas (UV) na cidade de Sao Paulo é alta durante quase todo o ano. Até mesmo no inverno seus níveis elevados  
 surpreendem os desavisados ou quem esqueceu de checar a previsão do tempo. Como sabemos, sem o uso de protetor solar as queimaduras causadas 
@@ -16,7 +16,7 @@ E também nos lembrar de passar o protetor solar! ;-)
 ![Image of LuV](https://carimeb.github.com/images/LUVIMAGE.jpeg)
 
 
-##Componentes:
+### **Componentes**:
 1. Módulo de Wifi Esp8266 Nodemcu V3 Lolin Com Chip Ch340g
 2. Módulo de Sensor De Luz Ultravioleta Veml6070 I2c Gy-veml6070
 3. Protoboard (a placa branca q liga os fios coloridos na foto)
@@ -26,6 +26,6 @@ E também nos lembrar de passar o protetor solar! ;-)
 Todos encontrados com facilidade em sites de eletrônicos ou lojas anunciantes.
 
 
-##Instruções:
+### **Instruções**:
 
 
