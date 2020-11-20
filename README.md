@@ -18,10 +18,13 @@ E também nos lembrar de passar o protetor solar! ;-)
 
 ### **Componentes**:
 1. Módulo de Wifi Esp8266 Nodemcu V3 Lolin Com Chip Ch340g
+![Image of LuV](https://github.com/carimeb/LUVproject/blob/main/LUVIMAGE.jpeg)
+
 2. Módulo de Sensor de Luz Ultravioleta Gy-VEML6070 com interface I2C
 3. Protoboard
 4. 4 fios coloridos
-5. Cabo USB x Mini USB 
+5. Cabo USB x Mini USB
+6. Fonte de bateria 5V, como por exemplo um powerbank
 
 Todos encontrados com facilidade em sites de eletrônicos ou lojas anunciantes.
 
