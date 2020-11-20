@@ -13,7 +13,7 @@ e salvo em uma base de dados no ThingSpeak. Lá, ele é comparado com o índice 
 que muitas vezes é pago por grandes produções agrícolas ou fazendas criadoras de animais em regiões remotas do país, mas não tem como avaliá-lo. 
 E também nos lembrar de passar o protetor solar! ;-)
 
-![Image of LuV](https://carimeb.github.com//LUVIMAGE.jpeg)
+![Image of LuV](https://github.com/carimeb/LUVproject/blob/main/LUVIMAGE.jpeg)
 
 
 ### **Componentes**:
