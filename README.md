@@ -18,9 +18,11 @@ E também nos lembrar de passar o protetor solar! ;-)
 
 ### **Componentes**:
 1. Módulo de Wifi Esp8266 Nodemcu V3 Lolin Com Chip Ch340g
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA1.png" width="100" height="100">
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA2.png" width="100" height="100">
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA3.png" width="100" height="100">
+<p float="center">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA1.png" width="150" height="150">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA2.png" width="150" height="150">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA3.png" width="150" height="150">
+  </p>
 
 2. Módulo de Sensor de Luz Ultravioleta Gy-VEML6070 com interface I2C
 3. Protoboard
