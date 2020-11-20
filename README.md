@@ -35,15 +35,15 @@ Certifique-se de ter instalado em seu editor de texto o IDE PlatformIO, uma plat
 * [Arduino.h](https://github.com/esp8266/Arduino), a biblioteca default do Arduino usada também pela placa Nodencu
 * [ESP8266WiFi.h](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html), para o wi-fi da placa
 * [ESP8266mDNS.h](https://arduino-esp8266.readthedocs.io/en/latest/libraries.html#mdns-and-dns-sd-responder-esp8266mdns-library) para troca de mensagens DNS
-* [ESP8266HTTPClient.h]()
-* WiFiClientSecure.h
+* [ESP8266HTTPClient.h](https://arduino-esp8266.readthedocs.io/en/2.7.4_a/esp8266wifi/client-examples.html)
+* [WiFiClientSecure.h](https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFiClientSecure/src/WiFiClientSecure.h)
 * [WiFiUdp.h](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/udp-class.html?highlight=wifiudp), para troca de mensagens UDP
-* Wire.h, I2C
-* Adafruit_VEML6070.h, para o sensor UV
-* NTPClient.h
-* ArduinoJson.h
-* LittleFS.h
-* UniversalTelegramBot.h, cliente do Telegram
+* [Wire.h, I2C](https://github.com/esp8266/Arduino/tree/master/libraries/Wire)
+* [Adafruit_VEML6070.h](https://github.com/adafruit/Adafruit_VEML6070), para o sensor UV
+* [NTPClient.h](https://www.arduino.cc/reference/en/libraries/ntpclient/)
+* [ArduinoJson.h](https://arduinojson.org/)
+* [LittleFS.h](https://github.com/lorol/LITTLEFS)
+* [UniversalTelegramBot.h](https://www.arduino.cc/reference/en/libraries/universaltelegrambot/), cliente do Telegram para o bot
 
 #### 2° passo
 
