@@ -29,3 +29,14 @@ Todos encontrados com facilidade em sites de eletrônicos ou lojas anunciantes.
 ### **Instruções**:
 
 
+Trying wi-fi connection:
+
+```C++
+void connect() {
+  if(DEBUG) Serial.println("Try to connect in WiFi network...");
+  while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      if(DEBUG) Serial.print(".");
+  }
+}
+```
