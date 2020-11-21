@@ -13,31 +13,31 @@ e salvo em uma base de dados no ThingSpeak. Lá, ele é comparado com o índice 
 que muitas vezes é pago por grandes produções agrícolas ou fazendas criadoras de animais em regiões remotas do país, mas não tem como avaliá-lo. 
 E também nos lembrar de passar o protetor solar! ;-)
 
-
+Essa foto mostra meu dispositivo final:
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/LUVIMAGE.jpeg" width="1032" height="502">
 
 
 ### **Componentes**:
-1. Módulo de Wifi Esp8266 Nodemcu V3 Lolin Com Chip Ch340g, como essa das fotos:
+1. Módulo de Wifi Esp8266 Nodemcu V3 Lolin Com Chip Ch340g, como esse das fotos do MercadoLivre.com:
 <p float="center">
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA1.png" width="150" height="100">
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA2.png" width="100" height="100">
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/PLACA3.png" width="150" height="100">
-  </p>
+</p>
 
-2. Módulo de Sensor de Luz Ultravioleta Gy-VEML6070 com interface I2C, como esse das fotos:
+2. Módulo de Sensor de Luz Ultravioleta Gy-VEML6070 com interface I2C, como esse das fotos do MercadoLivre.com:
 <p float="center">
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/SENSOR1.png" width="100" height="100">
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/SENSOR2.png" width="100" height="100">
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/SENSOR3.png" width="200" height="100">
-  </p>
+</p>
   
 3. Protoboard
 4. 4 jumpers
 5. Cabo USB x Micro USB
 6. Fonte de bateria 5V como, por exemplo, um powerbank
 
-Todos encontrados com facilidade em sites de eletrônicos ou lojas anunciantes.
+Todos encontrados com facilidade em sites de eletrônicos ou de lojas anunciantes.
 
 
 ### **Instruções**:
@@ -76,13 +76,12 @@ Com isso, na pasta src já estará um arquivo main.cpp pronto para ser codado, c
 #### 3° passo - Preparação do dispositivo
 
 Na protoboard, conecte o módulo de wi-fi na fileira de sua preferência, de modo que a coluna dos pontos D0, D1, D2 etc fique apta a ser conectada com os jumpers. 
-Na foto abaixo, ele está conectado na primeira casinha da fileira J e os jumpers na fileira H, da seguinte forma: o jumper roxo conecta D1 (GPIO5) da placa com o SDA do sensor, o jumper cinza conecta o D2 (GPIO4) da placa com o SCL do sensor, o jumper verde conecta o G (GROUND) da placa com o GND do sensor e, por fim, o jumper vermelho conecta o 3V da placa com o VCC do sensor.
+Na foto abaixo, ele está conectado na primeira casinha da fileira J e os jumpers estão conectados na fileira H, da seguinte forma: o jumper roxo conecta D1 (GPIO5) da placa com o SDA do sensor, o jumper cinza conecta o D2 (GPIO4) da placa com o SCL do sensor, o jumper verde conecta o G (GROUND) da placa com o GND do sensor e, por fim, o jumper vermelho conecta o 3V da placa com o VCC do sensor.
 
 <p float="center">
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/PROTOBOARD.png" width="300" height="400">
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/PONTOSPLACA.png" width="100" height="100">
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/PONTOSSENSOR.png" width="200" height="100">
-  </p>
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/ILUSTRACAO.png" width="100" height="100">
+</p>
 
 
 #### 4° passo - Algumas explicações sobre o código em C++ (do arquivo main.cpp)
@@ -99,6 +98,40 @@ Ainda sobre a definição de valores, essas variáveis foram criadas e configura
 #define MAXLEN 100
 #define MAXSUB 10
 ```
-Uma sugestão de tutorial para aprender a codar com a API do ThingSpeak usando a placa ESP8266: https://www.filipeflop.com/blog/esp8266-com-thingspeak/
 
+A função abaixo foi escrita após a leitura do seguinte tutorial para codar com a API do ThingSpeak usando a placa ESP8266: https://www.filipeflop.com/blog/esp8266-com-thingspeak/. Ela é bem simples e tem como objetivo configurar os canais de comunicação com o ThingSpeak. 
+```C++
+void write_thingspeak(int uvIndex) {
+    if (client.connect(addr_api_thingspeak, 80)) {
+        char buffer[100] = {0};
+        sprintf(buffer,"field1=%d", uvIndex);
+        client.print("POST /update HTTP/1.1\n");
+        client.print("Host: api.thingspeak.com\n");
+        client.print("Connection: close\n");
+        client.print("X-THINGSPEAKAPIKEY: "+thingspeakKey+"\n");
+        client.print("Content-Type: application/x-www-form-urlencoded\n");
+        client.print("Content-Length: ");
+        client.print(strlen(buffer));
+        client.print("\n\n");
+        client.print(buffer);
+        last_connection_time = millis();                 //Time control, to know when send the next info to database 
+        Serial.println("- Infos sent to ThingSpeak!");
+    }
+}
+```
 
+A função abaixo foi escrita após a leitura do seguinte tutorial: https://community.particle.io/t/getting-utc-time-from-ntp-server/1213. 
+```C++
+void startTimeNclients() {
+  timeClient.begin();
+  configTime(0, 0, "pool.ntp.org");
+  time_t now = time(nullptr);
+  Serial.println(" - Sync...");
+  while (now < 24 * 3600) {
+    if(DEBUG) Serial.print(".");
+    delay(100);
+    now = time(nullptr);
+  }
+  timeClient.update();
+}
+```
