@@ -59,17 +59,18 @@ Entretanto, essas daqui precisarão ser instaladas:
 
 * [Adafruit_VEML6070.h](https://github.com/adafruit/Adafruit_VEML6070), para o sensor UV
 * [NTPClient.h](https://www.arduino.cc/reference/en/libraries/ntpclient/), para conectar a um servidor NTP
-* [ArduinoJson.h](https://arduinojson.org/), para que a placa possa lidar com arquivos .json
+* [ArduinoJson.h](https://arduinojson.org/), para que a placa possa lidar com arquivos .json. **IMPORTANTE:** Usar a versão 6.x
 * [UniversalTelegramBot.h](https://www.arduino.cc/reference/en/libraries/universaltelegrambot/), cliente do Telegram para o bot
 
 
 #### 2° passo - Configuração do projeto no PlatformIO
 
-Antes de tudo, para que seu sistema operacional Linux te autorize a trocar dados com a entrada USB, caso ele já não estiver autorizando, é necessário rodar o seguinte comando no modo sudo (não se esqueça de trocar "username" pelo seu usuário no computador!):
+Antes de tudo, para que seu sistema operacional Linux autorize a troca de dados com a entrada USB, caso ele já não estiver autorizando, é necessário rodar o seguinte comando no modo sudo (não se esqueça de trocar "username" pelo seu usuário no computador!):
 ```
 usermod -a -G dialout username
 ```
-É recomendável que vc reinicialize o computador antes de continuar. Nem sempre as configurações são atualizadas somente reinicializando o editor de texto.  Em seguida, crie um novo projeto no PlatformIO especificando qual placa (módulo) será usada em seu dispositivo, o framework e a platform. No meu caso, especifiquei, respectivamente: nodemcuv2 (ou nodemcu 1.0), arduino e espressif8266. 
+É recomendável reinicializar o computador antes de continuar. Nem sempre as configurações são atualizadas somente fechando/abrindo o editor de texto.  Em seguida, crie um novo projeto no PlatformIO especificando qual placa (módulo) será usada em seu dispositivo, o framework e a platform. No meu caso, especifiquei, respectivamente: nodemcuv2 (ou nodemcu 1.0), arduino e espressif8266. 
+Com isso, na pasta src já estará um arquivo main.cpp pronto para ser codado, com as bibliotecas básicas do Arduino já inclusas. Na pasta lib deverão ser instaladas as bibliotecas já mencionadas no 1° passo. 
 
 
 #### 3° passo - Preparação do dispositivo
