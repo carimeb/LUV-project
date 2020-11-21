@@ -120,7 +120,7 @@ void write_thingspeak(int uvIndex) {
 }
 ```
 
-A função abaixo foi escrita após a leitura do seguinte tutorial: https://community.particle.io/t/getting-utc-time-from-ntp-server/1213. 
+A função abaixo foi escrita após a leitura do seguinte tutorial: https://community.particle.io/t/getting-utc-time-from-ntp-server/1213. Ela é bem padrão também, usada por um cliente NTC para pegar o horário do fuso horário escolhido na internet.
 ```C++
 void startTimeNclients() {
   timeClient.begin();
@@ -135,3 +135,19 @@ void startTimeNclients() {
   timeClient.update();
 }
 ```
+
+Outro tutorial que me ajudou bastante a configurar a comunicação do protocolo I2C, do sensor UV, foi o seguinte: https://learn.sparkfun.com/tutorials/i2c/all. Além disso, foi indispensável o uso do datasheet do sensor para ver a escala do UV e programá-la direitinho depois da leitura feita pelo sensor. Pode ser baixada nesse link: https://www.vishay.com/docs/84310/designingveml6070.pdf.
+
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/uvIndexSheet.png" width="300" height="400">
+
+Um ponto que eu mudaria num possível próximo código seria a forma de checar se o sistema está se repetindo ou não ser religado. Para que não haja menssagens em excesso, a checagem do momento de envio da última menssagem poderia ter sido feito usando datas ao invés de número para os dias da semana (0 - domingo, 6 - sábado). 
+```C++
+void sendWarning() {
+.
+.
+
+/*Correction for cycling count of weekend days*/
+  if((timeClient.getDay()+1)%6 == lastToday) lastToday = timeClient.getDay();
+  
+ }
+ ```
