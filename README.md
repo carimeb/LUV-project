@@ -138,7 +138,7 @@ void startTimeNclients() {
 
 Outro tutorial que me ajudou bastante a configurar a comunicação do protocolo I2C, do sensor UV, foi o seguinte: https://learn.sparkfun.com/tutorials/i2c/all. Além disso, foi indispensável o uso do datasheet do sensor para ver a escala do UV e programá-la direitinho depois da leitura feita pelo sensor. Pode ser baixada nesse link: https://www.vishay.com/docs/84310/designingveml6070.pdf.
 
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/uvIndexSheet.png" width="500" height="100">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/uvIndexSheet.png" width="700" height="150">
 
 Um ponto que eu mudaria num possível próximo código seria a forma de checar se o sistema está se repetindo ou não ao ser religado. Para que não haja menssagens em excesso, a checagem do momento de envio da última menssagem poderia ter sido feito usando datas ao invés de número para os dias da semana (0 - domingo, 6 - sábado). O trecho que me refiro é esse: 
 ```C++
