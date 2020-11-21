@@ -15,7 +15,7 @@
 
 #define SERIAL_VELOCITY 115200                          //Set Serial velocity for debug
 
-#define BOTtoken "1346226358:AAEB3qC7Cj8pgRC9tvw4jLwb5LFWoaY1Epc"                                     //bot ID for telegram API
+#define BOTtoken ""                                     //bot ID for telegram API
 #define INTERVAL 1000                                   //Message check interval
 #define MAXLEN 100                                      //MAX message length allowed
 
@@ -34,7 +34,7 @@ const char* ssid = "";                                  //Put your wifi name her
 const char* password = "";                            //Put your wifi password here
 
 char addr_api_thingspeak[] = "api.thingspeak.com";
-String thingspeakKey = "KYL6C7I4EOKEI5NR";  /* Coloque aqui sua chave de escrita do seu canal */
+String thingspeakKey = "";  /* Coloque aqui sua chave de escrita do seu canal */
 unsigned long last_connection_time;
 
 String subscribed[MAXSUB];
@@ -220,7 +220,6 @@ void handler(String chat_id, String name, String user_id, String msg) {
   else if (msg == "UNSUBSCRIBE") unsubscribe(chat_id);
   else if (msg == "/START") bot.sendMessage(chat_id, WELCOME, "HTML");
   else if (msg == "/HELP") bot.sendMessage(chat_id, "<b>Commands Available:</b>\n" + AVAILABLE_CMD, "HTML");
-  else if (msg == "FARAO")  bot.sendPhoto(chat_id, "https://hardwarelivreusp.org/assets/images/blog/2018-10-20-hardwarelivreusp_no_programa_dirigivel_da_ciencia_e_tecnologia/hwlivre_jva.png", "Eu Falei Faraó êeeee Faraó");
   else bot.sendMessage(chat_id, "<b>Command not Available :(</b>\n", "HTML");
 }
 
