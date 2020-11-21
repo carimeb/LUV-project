@@ -14,7 +14,7 @@ que muitas vezes é pago por grandes produções agrícolas ou fazendas criadora
 E também nos lembrar de passar o protetor solar! ;-)
 
 
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/LUVIMAGE.jpeg" width="332" height="602">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/LUVIMAGE.jpeg" width="1032" height="502">
 
 
 ### **Componentes**:
@@ -66,9 +66,14 @@ Entretanto, essas daqui precisarão ser instaladas:
 #### 2° passo - Preparação da placa
 
 Na protoboard, conecte o módulo de wi-fi na fileira de sua preferência, de modo que a coluna dos pontos D0, D1, D2 etc fique apta a ser conectada com os jumpers. 
-Na foto abaixo, ele está conectado na primeira casinha da fileira J e os jumpers na fileira H, da seguinte forma:
+Na foto abaixo, ele está conectado na primeira casinha da fileira J e os jumpers na fileira H, da seguinte forma: o jumper roxo conecta D1 (GPIO5) da placa com o SDA do sensor, o jumper cinza conecta o D2 (GPIO4) da placa com o SCL do sensor, o jumper verde conecta o G (GROUND) da placa com o GND do sensor e, por fim, o jumper vermelho conecta o 3V da placa com o VCC do sensor.
 
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/PROTOBOARD.png" width="332" height="602">
+<p float="center">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PROTOBOARD.png" width="300" height="400">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PONTOSPLACA.png" width="100" height="100">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PONTOSSENSOR.png" width="200" height="100">
+  </p>
+
 
 
 
