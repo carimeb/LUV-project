@@ -1,5 +1,5 @@
-# LuV - Light UV Project to 'Fundamentals of IoT' course in University of Sao Paulo.
-_A portable IoT device that sends a Telegram message informing the measured UV index and is connected to a database in [ThingSpeak](https://thingspeak.com/)._
+# LuV - Light UV Project 
+_A portable IoT device that sends a Telegram message informing the measured UV index and is connected to a database in [ThingSpeak](https://thingspeak.com/). A final project to 'Fundamentals of IoT' course in University of Sao Paulo._
 
 A incidência de raios ultravioletas (UV) na cidade de Sao Paulo é alta durante quase todo o ano. Até mesmo no inverno seus níveis elevados  
 surpreendem os desavisados ou quem esqueceu de checar a previsão do tempo. Como sabemos, sem o uso de protetor solar as queimaduras causadas 
@@ -34,8 +34,8 @@ E também nos lembrar de passar o protetor solar! ;-)
   
 3. Protoboard (placa branca na foto do projeto)
 4. 4 jumpers (fios coloridos na foto do projeto)
-5. Cabo USB x Mini USB
-6. Fonte de bateria 5V, como por exemplo um powerbank
+5. Cabo USB x Micro USB
+6. Fonte de bateria 5V como, por exemplo, um powerbank
 
 Todos encontrados com facilidade em sites de eletrônicos ou lojas anunciantes.
 
