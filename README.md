@@ -88,7 +88,8 @@ Na foto abaixo, ele está conectado na primeira casinha da fileira J e os jumper
 #### 4° passo - Algumas explicações sobre o código em C++ (do arquivo main.cpp)
 
 Dois pequenos lembretes: para compilar seu código no PlatformIO vá em Project Tasks e double-click em Build. Se der tudo certo, conecte a placa no seu computador (usando o cabo USB) e double-click em Upload para que o código binário seja enviado para a placa (eu demorei pra sacar essas coisas!). 
-A velocidade da comunicação serial entre o computador e a placa foi definida em 115200, pois foi o valor mais comumente visto em códigos semelhantes. Observação: este valor deve ser igual ao configurado no PlatformIO em Serial Monitor. 
+
+Voltando ao código, a velocidade da comunicação serial entre o computador e a placa foi definida em 115200, pois foi o valor mais comumente visto em códigos semelhantes. Observação: este valor deve ser igual ao configurado no PlatformIO em Serial Monitor. 
 ```C++
 #define SERIAL_VELOCITY 115200
 ```
