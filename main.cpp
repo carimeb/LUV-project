@@ -26,31 +26,31 @@ String SUN = "\xE2\x98\x80";                            //Sun emoji
 
 const size_t json_size = 512;
 
-
 const char* ssid = "";                                  //Put your wifi name here
-const char* password = "";                            //Put your wifi password here
+const char* password = "";                              //Put your wifi password here
 
 char addr_api_thingspeak[] = "api.thingspeak.com";
-String thingspeakKey = "";  /* Coloque aqui sua chave de escrita do seu canal */
+String thingspeakKey = "";                              //Put your ThingSpeak key here
 unsigned long last_connection_time;
 
 String subscribed[MAXSUB];
 
 const String FILENAME = "/config.json";
 
-/*Struct used to processing messages from telegram*/
+/*Default Telegram struct used in processing messages*/
 typedef struct msg_ {
   char buffer[20];
   int size;
 } msg;
 
-X509List cert(TELEGRAM_CERTIFICATE_ROOT);
-WiFiClientSecure client_bot;                            //client for HTTPS connection
-UniversalTelegramBot bot(BOTtoken, client_bot);         //instance for telegram bot interface
-Adafruit_VEML6070 uv = Adafruit_VEML6070();             //instace of UV sensor
-WiFiUDP ntpUDP;                                         //NTP server udp connection
-NTPClient timeClient(ntpUDP, "a.st1.ntp.br", -3 * 3600);                           //NTP time object
-WiFiClient client;
+/*Object instantiations*/
+X509List cert(TELEGRAM_CERTIFICATE_ROOT);               //SSL certificate to identify my bot
+WiFiClientSecure client_bot;                            //HTTPS connection client
+UniversalTelegramBot bot(BOTtoken, client_bot);         //Telegram bot interface
+Adafruit_VEML6070 uv = Adafruit_VEML6070();             //UV sensor
+WiFiUDP ntpUDP;                                         //NTP server UDP connection
+NTPClient timeClient(ntpUDP, "a.st1.ntp.br", -3 * 3600);//NTP time set to Brazil timezone
+WiFiClient client;                                      //Secure wi-fi communication client  
 
 unsigned long dt;
 msg message;
