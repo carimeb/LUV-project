@@ -18,7 +18,7 @@
 #define INTERVAL 1000                                   //Message checking interval (in milliseconds)
 #define MAXLEN 100                                      //Max num of characters in a message
 #define MAXSUB 10                                       //Max num of subscribers
-#define UVWARNING 30                                    //UV index limit to send an alert
+#define UVWARNING 30                                    //UV index limit to send an warning
 
 String WELCOME = "Welcome to <b>UV_bot</b>, send <b>/help</b> to help";
 String AVAILABLE_CMD = "<b>UV</b>: Get UV index\n<b>SUBSCRIBE</b>: Subscribe to notification of high UV warning index\n<b>UNSUBSCRIBE</b>: Unsubscribe to notification of high UV warning";
@@ -26,8 +26,8 @@ String SUN = "\xE2\x98\x80";                            //Sun emoji
 
 const size_t json_size = 512;
 
-const char* ssid = "";                                  //Put your wifi name here
-const char* password = "";                              //Put your wifi password here
+const char* ssid = "";                                  //Put your wifi network name here
+const char* password = "";                              //Put your wifi network password here
 
 char addr_api_thingspeak[] = "api.thingspeak.com";
 String thingspeakKey = "";                              //Put your ThingSpeak key here
@@ -58,7 +58,7 @@ msg message;
 int lastToday = -1;
 int last_hour_get = -1;
 
-/*Send data to ThingSpeak using HTTP API*/
+/*Communication to send data to ThingSpeak database using HTTP API*/
 void write_thingspeak(int uvIndex) {
     if (client.connect(addr_api_thingspeak, 80)) {
         char buffer[100] = {0};
@@ -72,7 +72,7 @@ void write_thingspeak(int uvIndex) {
         client.print(strlen(buffer));
         client.print("\n\n");
         client.print(buffer);
-        last_connection_time = millis();
+        last_connection_time = millis();                 //Time control, to know when send the next info to database 
         Serial.println("- Infos sent to ThingSpeak!");
     }
 }
@@ -87,7 +87,7 @@ void connect() {
   }
 }
 
-/*get UTC time via NTP server*/
+/*Get UTC time via NTP server*/
 void startTimeNclients() {
   timeClient.begin();
   configTime(0, 0, "pool.ntp.org");
@@ -101,7 +101,7 @@ void startTimeNclients() {
   timeClient.update();
 }
 
-/*create file with users subscribed data and when warnings are sent*/
+/*Create a configuration file in the board memory, with subscribed users data and when the warnings will be/were sent*/
 void createFile() {
   File rFile = LittleFS.open(FILENAME, "w");
   if (!rFile) {
@@ -110,15 +110,15 @@ void createFile() {
   }
   if(DEBUG) Serial.println(" - Save File");
   DynamicJsonDocument root(json_size);
-  root["today"] = lastToday;
+  root["today"] = lastToday;                             //Keep the number of the day of the week the last message was sent - avoid flooding
   JsonArray arr = root.createNestedArray("users");
-  for(int i = 0; i < MAXSUB; i++) arr.add(subscribed[i]);
+  for(int i = 0; i < MAXSUB; i++) arr.add(subscribed[i]); //Limit the number of subscribers
   serializeJson(root,rFile);
   if(DEBUG) serializeJson(root,Serial);
   rFile.close();
 }
 
-/*Read file from memory*/
+/*Read the .json memory file*/
 void readFile() {
   if(DEBUG) Serial.print(" - Read File");
   for(int i = 0; i < MAXSUB; i++) subscribed[i] = "";
@@ -138,11 +138,11 @@ void readFile() {
   else createFile();
 }
 
-/*Routine to add the subscribers*/
+/*Routine to add subscribers*/
 void subscribe(String chatID) {
   for(int i = 0; i < MAXSUB; i++) {
     if(subscribed[i] == chatID) {
-      bot.sendMessage(chatID, "You are subscribed alredy", "HTML");
+      bot.sendMessage(chatID, "You are already subscribed.", "HTML");
       return;
     }
   }
@@ -150,24 +150,24 @@ void subscribe(String chatID) {
     if(subscribed[i] == "") {
       subscribed[i] = chatID;
       createFile();
-      bot.sendMessage(chatID, "Subscribed to Alert!", "HTML");
+      bot.sendMessage(chatID, "You are subscribed to warnings.", "HTML");
       return;
     }
   }
-  bot.sendMessage(chatID, "Sorry, the system are overloaded of users", "HTML");
+  bot.sendMessage(chatID, "Sorry, the system has already reached the limit of subscribers.", "HTML");
 }
 
-/*Routine to remove the subscribers*/
+/*Routine to remove a subscribers*/
 void unsubscribe(String chatID) {
   for(int i = 0; i < MAXSUB; i++) {
     if(subscribed[i] == chatID) {
       subscribed[i] = "";
       createFile();
-      bot.sendMessage(chatID, "You are unsubscribed", "HTML");
+      bot.sendMessage(chatID, "You are unsubscribed.", "HTML");
       return;
     }
   }
-  bot.sendMessage(chatID, "You are unsubscribed alredy", "HTML");
+  bot.sendMessage(chatID, "you are unsubscribed already.", "HTML");
 }
 
 
@@ -179,35 +179,35 @@ int read_UV_sensor() {
   return UV_index;
 }
 
-/*Check UV power and eventualy send warning*/
+/*Check the UV index and eventually send a warning*/
 void sendWarning() {
   timeClient.update();
   int uvIndex = read_UV_sensor();
   if(DEBUG) Serial.println(String(lastToday) + " " + String(timeClient.getDay()) + " " + String(uvIndex));
 
-  /*send data to thinkspeak every hour*/
+  /*Send data to ThingSpeak hourly*/
   if(timeClient.getHours() != last_hour_get) {
     last_hour_get = timeClient.getHours();
     write_thingspeak(uvIndex);
   }
-  /*if UV get high levels send send warning once per day*/
+  /*If the UV index reaches a high level, it sends a warning once a day*/
   if(timeClient.getDay() != lastToday && uvIndex >= UVWARNING) {
     lastToday = timeClient.getDay();
     if(DEBUG) Serial.println("Send Warning");
     createFile();
     for(int i = 0; i < MAXSUB; i++) {
-      if(subscribed[i].length() > 0) bot.sendMessage(subscribed[i], "UV IS TOO HIGH TODAY", "HTML");
+      if(subscribed[i].length() > 0) bot.sendMessage(subscribed[i], "UV IS TOO HIGH TODAY!", "HTML");
     }
-    write_thingspeak(uvIndex);
+    write_thingspeak(uvIndex);                   //Special bulletin to ThingSpeak database, independently of the hour
   }
-  /*correction for cycling count of weekend days*/
+  /*Correction for cycling count of weekend days*/
   if((timeClient.getDay()+1)%6 == lastToday) lastToday = timeClient.getDay();
 }
 
-/*Function to interpretate message content*/
+/*Function to interpret message content*/
 void handler(String chat_id, String name, String user_id, String msg) {
-  bot.sendChatAction(chat_id, "typing");                                                   //Show "typing" in telegram chat
-  msg.toUpperCase();                                                                      //Set the bot case unsensitive
+  bot.sendChatAction(chat_id, "typing");         //Show "typing" in Telegram chat
+  msg.toUpperCase();                             //Set message to case insensitive
   if (msg.indexOf("UV") > -1) {
     String m = SUN + "<b>UV index</b>: " + String(read_UV_sensor()) + "\n";
     Serial.println(m);
@@ -226,11 +226,11 @@ void readTel() {
    int newmsg = bot.getUpdates(bot.last_message_received + 1);
    if(DEBUG) Serial.println("Done");
 
-   for (int i = 0; i < newmsg; i++) {                                                     //Read all queued messages
-      String chat_id = bot.messages[i].chat_id;                                           //Get the chat ID from message was sent
-      String sender_id = bot.messages[i].from_id;                                         //Get user ID who send the message
-      String name = bot.messages[i].from_name;                                            //Get user Telegram name
-      if(DEBUG) Serial.println("We have a message!");
+   for (int i = 0; i < newmsg; i++) {                            //Read all queued messages
+      String chat_id = bot.messages[i].chat_id;                  //Get the chat ID from message was sent
+      String sender_id = bot.messages[i].from_id;                //Get user ID who send the message
+      String name = bot.messages[i].from_name;                   //Get user Telegram name
+      if(DEBUG) Serial.println("We got a message");
       if(bot.messages[i].text.length() < MAXLEN){
         String msg = bot.messages[i].text;
         handler(chat_id, name, sender_id, msg);
@@ -240,18 +240,18 @@ void readTel() {
 }
 
 void setup() {
-  if(DEBUG) Serial.begin(SERIAL_VELOCITY);                                               //Start serial communication
-  uv.begin(VEML6070_1_T);                                                                //Start the UV sensor
-  WiFi.mode(WIFI_STA);                                                                   //Wifi setmode as station
-  WiFi.setAutoReconnect(true);                                                           //Set wifi station mode, not a access poijnt
+  if(DEBUG) Serial.begin(SERIAL_VELOCITY);                     //Start serial communication
+  uv.begin(VEML6070_1_T);                                      //Start the UV sampling
+  WiFi.mode(WIFI_STA);                                         //Set wifi to station mode, not an access point
+  WiFi.setAutoReconnect(true);                                 //Reconnect to wifi automatically, if interrupted
   WiFi.begin(ssid, password);
-  client_bot.setTrustAnchors(&cert);                                                     //Add root certificate for api.telegram.org
-  connect();                                                                            //Connect the wifi
-  LittleFS.begin();                                                                     //Start Filesys
-  if(DEBUG)Serial.println("Connected!");
+  client_bot.setTrustAnchors(&cert);                           //Add root certificate for api.telegram.org
+  connect();                                                   //Connect to wifi
+  LittleFS.begin();                                            //Start Filesys
+  if(DEBUG)Serial.println("Connected");
   if(DEBUG)Serial.print("IP Addr: ");
   if(DEBUG)Serial.println(WiFi.localIP());
-  startTimeNclients();
+  startTimeNclients();                                         //Get time from the set timezone
   readFile();
 }
 
@@ -260,7 +260,7 @@ void loop() {
       timeClient.update();
       sendWarning();
       if(WiFi.status() != WL_CONNECTED) connect();
-      client_bot.setInsecure();
+      client_bot.setInsecure();                               //Avoid compatibility issues between the board ESP8266 and Telegram API. 100% secure!
       readTel();
       dt = millis();
   }
