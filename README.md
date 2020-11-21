@@ -1,5 +1,5 @@
 # LuV - Light UV Project 
-_A portable IoT device that sends a Telegram message informing the measured UV index and is connected to a database in [ThingSpeak](https://thingspeak.com/). That's my final project to 'Fundamentals of IoT' course in University of Sao Paulo._
+_A portable IoT device that sends a Telegram message informing the measured UV index and is connected to a database in [ThingSpeak](https://thingspeak.com/). That's my final project to the course 'Fundamentals of IoT' in University of Sao Paulo._
 
 A incidência de raios ultravioletas (UV) na cidade de Sao Paulo é alta durante quase todo o ano. Até mesmo no inverno seus níveis elevados  
 surpreendem os desavisados ou quem esqueceu de checar a previsão do tempo. Como sabemos, sem o uso de protetor solar as queimaduras causadas 
@@ -42,7 +42,7 @@ Todos encontrados com facilidade em sites de eletrônicos ou lojas anunciantes.
 
 ### **Instruções**:
 
-#### 1° passo - Instalação dos softwares
+#### 1° passo - Instalação de softwares
 
 Certifique-se de ter instalado em seu editor de texto o IDE PlatformIO, uma plataforma profissional colaborativa para desenvolvimento de sistemas embarcados. Usaremos as bibliotecas abaixo que, por padrão, já estão instaladas nele:
 
@@ -63,7 +63,16 @@ Entretanto, essas daqui precisarão ser instaladas:
 * [UniversalTelegramBot.h](https://www.arduino.cc/reference/en/libraries/universaltelegrambot/), cliente do Telegram para o bot
 
 
-#### 2° passo - Preparação da placa
+#### 2° passo - Configuração do projeto no PlatformIO
+
+Antes de tudo, para que seu sistema operacional Linux te autorize a trocar dados com a entrada USB, caso ele já não estiver autorizando, é necessário rodar o seguinte comando no modo sudo (não se esqueça de trocar "username" pelo seu usuário no computador!):
+```
+usermod -a -G dialout username
+```
+É recomendável que vc reinicialize o computador antes de continuar. Nem sempre as configurações são atualizadas somente reinicializando o editor de texto.  Em seguida, crie um novo projeto no PlatformIO especificando qual placa (módulo) será usada em seu dispositivo, o framework e a platform. No meu caso, especifiquei, respectivamente: nodemcuv2 (ou nodemcu 1.0), arduino e espressif8266. 
+
+
+#### 3° passo - Preparação do dispositivo
 
 Na protoboard, conecte o módulo de wi-fi na fileira de sua preferência, de modo que a coluna dos pontos D0, D1, D2 etc fique apta a ser conectada com os jumpers. 
 Na foto abaixo, ele está conectado na primeira casinha da fileira J e os jumpers na fileira H, da seguinte forma: o jumper roxo conecta D1 (GPIO5) da placa com o SDA do sensor, o jumper cinza conecta o D2 (GPIO4) da placa com o SCL do sensor, o jumper verde conecta o G (GROUND) da placa com o GND do sensor e, por fim, o jumper vermelho conecta o 3V da placa com o VCC do sensor.
@@ -75,7 +84,11 @@ Na foto abaixo, ele está conectado na primeira casinha da fileira J e os jumper
   </p>
 
 
+#### 4° passo - Algumas explicações sobre o código em C++ (do arquivo main.cpp)
 
+
+
+Dois lembretes: para compilar seu código vá em Project Tasks e double-click em Build. Se der tudo certo, conecte a placa no seu computador (usando o cabo USB) e double-click em Upload para que o código binário seja enviado para a placa (eu demorei pra sacar essas coisas!). 
 
 ```C++
 void connect() {
