@@ -68,7 +68,7 @@ Entretanto, essas daqui precisarão ser instaladas:
 Na protoboard, conecte o módulo de wi-fi na fileira de sua preferência, de modo que a coluna dos pontos D0, D1, D2 etc fique apta a ser conectada com os jumpers. 
 Na foto abaixo, ele está conectado na primeira casinha da fileira J e os jumpers na fileira H, da seguinte forma:
 
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/LUVIMAGE.jpeg" width="332" height="602">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PROTOBOARD.jpeg" width="332" height="602">
 
 
 
