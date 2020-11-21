@@ -1,19 +1,19 @@
-#include <Arduino.h>                                    //default arduino library                                    //Using AXTLS interface for HTTPS
-#include <ESP8266WiFi.h>                                //Wifi library
-#include <ESP8266mDNS.h>                                //DNS library
-#include <ESP8266HTTPClient.h>
-#include <WiFiClientSecure.h>
-#include <WiFiUdp.h>                                    //UDP messages library
-#include <Wire.h>                                       //I2C library
+#include <Arduino.h>                                    //Default Arduino lib, using AXTLS interface for HTTPS
+#include <ESP8266WiFi.h>                                //Wifi connection library
+#include <ESP8266mDNS.h>                                //DNS library (to device get a name in the router)
+#include <ESP8266HTTPClient.h>                          //Communicate to Telegram and ThingSpeak    
+#include <WiFiClientSecure.h>                           //SSL usage (HTTPS)
+#include <WiFiUdp.h>                                    //UDP messages library (to use NTP client)
+#include <Wire.h>                                       //I2C protocol library
 #include <Adafruit_VEML6070.h>                          //UV light sensor
-#include <NTPClient.h>
-#include <ArduinoJson.h>
-#include <LittleFS.h>
+#include <NTPClient.h>                                  //Get timezones in the internet
+#include <ArduinoJson.h>                                //To create and manipulate json files and Telegram lib
+#include <LittleFS.h>                                   //To control board memory
 #include <UniversalTelegramBot.h>                       //Telegram client library
 
-#define DEBUG true
+#define DEBUG true                                      //Flag to debug via serial communication, when the board is connected to notebook
 
-#define SERIAL_VELOCITY 115200                          //Set Serial velocity for debug
+#define SERIAL_VELOCITY 115200                          //Set serial communication velocity between board and notebook, for debug
 
 #define BOTtoken ""                                     //bot ID for telegram API
 #define INTERVAL 1000                                   //Message check interval
