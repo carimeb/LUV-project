@@ -14,7 +14,7 @@ que muitas vezes é pago por grandes produções agrícolas ou fazendas criadora
 E também nos lembrar de passar o protetor solar! ;-)
 
 
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/LUVIMAGE.png" width="332" height="602">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/LUVIMAGE.jpeg" width="332" height="602">
 
 
 ### **Componentes**:
