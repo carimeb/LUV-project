@@ -99,3 +99,6 @@ Ainda sobre a definição de valores, essas variáveis foram criadas e configura
 #define MAXLEN 100
 #define MAXSUB 10
 ```
+Uma sugestão de tutorial para aprender a codar com a API do ThingSpeak usando a placa ESP8266: https://www.filipeflop.com/blog/esp8266-com-thingspeak/
+
+
