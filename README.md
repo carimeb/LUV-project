@@ -140,7 +140,7 @@ Outro tutorial que me ajudou bastante a configurar a comunicação do protocolo 
 
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/uvIndexSheet.png" width="300" height="400">
 
-Um ponto que eu mudaria num possível próximo código seria a forma de checar se o sistema está se repetindo ou não ser religado. Para que não haja menssagens em excesso, a checagem do momento de envio da última menssagem poderia ter sido feito usando datas ao invés de número para os dias da semana (0 - domingo, 6 - sábado). 
+Um ponto que eu mudaria num possível próximo código seria a forma de checar se o sistema está se repetindo ou não ao ser religado. Para que não haja menssagens em excesso, a checagem do momento de envio da última menssagem poderia ter sido feito usando datas ao invés de número para os dias da semana (0 - domingo, 6 - sábado). O trecho que me refiro é esse: 
 ```C++
 void sendWarning() {
 .
