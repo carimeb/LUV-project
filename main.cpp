@@ -14,14 +14,11 @@
 #define DEBUG true                                      //Flag to debug via serial communication, when the board is connected to notebook
 
 #define SERIAL_VELOCITY 115200                          //Set serial communication velocity between board and notebook, for debug
-
-#define BOTtoken ""                                     //bot ID for telegram API
-#define INTERVAL 1000                                   //Message check interval
-#define MAXLEN 100                                      //MAX message length allowed
-
-#define MAXSUB 10
-
-#define UVWARNING 30
+#define BOTtoken ""                                     //Secret Telegram bot ID, the bot to be manipulate
+#define INTERVAL 1000                                   //Message checking interval (in milliseconds)
+#define MAXLEN 100                                      //Max num of characters in a message
+#define MAXSUB 10                                       //Max num of subscribers
+#define UVWARNING 30                                    //UV index limit to send an alert
 
 String WELCOME = "Welcome to <b>UV_bot</b>, send <b>/help</b> to help";
 String AVAILABLE_CMD = "<b>UV</b>: Get UV index\n<b>SUBSCRIBE</b>: Subscribe to notification of high UV warning index\n<b>UNSUBSCRIBE</b>: Unsubscribe to notification of high UV warning";
