@@ -79,8 +79,8 @@ Na protoboard, conecte o módulo de wi-fi na fileira de sua preferência, de mod
 Na foto abaixo, ele está conectado na primeira casinha da fileira J e os jumpers estão conectados na fileira H, da seguinte forma: o jumper roxo conecta D1 (GPIO5) da placa com o SDA do sensor, o jumper cinza conecta o D2 (GPIO4) da placa com o SCL do sensor, o jumper verde conecta o G (GROUND) da placa com o GND do sensor e, por fim, o jumper vermelho conecta o 3V da placa com o VCC do sensor.
 
 <p float="center">
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/PROTOBOARD.png" width="300" height="400">
-<img src="https://github.com/carimeb/LUVproject/blob/main/images/ILUSTRACAO.png" width="100" height="100">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/PROTOBOARD.png" width="300" height="500">
+<img src="https://github.com/carimeb/LUVproject/blob/main/images/ILUSTRACAO.jpg" width="300" height="500">
 </p>
 
 
