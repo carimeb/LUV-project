@@ -136,7 +136,7 @@ void startTimeNclients() {
 }
 ```
 
-Outro tutorial que me ajudou bastante a configurar a comunicação do protocolo I2C, do sensor UV, foi o seguinte: https://learn.sparkfun.com/tutorials/i2c/all. Além disso, foi indispensável o uso do datasheet do sensor para ver a escala do UV e programá-la direitinho depois da leitura feita pelo sensor. Pode ser baixada nesse link: https://www.vishay.com/docs/84310/designingveml6070.pdf.
+Outro tutorial que me ajudou bastante a configurar a comunicação do protocolo I2C, do sensor UV, foi o seguinte: https://learn.sparkfun.com/tutorials/i2c/all. Além disso, foi indispensável o uso do datasheet do sensor para ver a escala do UV e programá-la direitinho depois da leitura feita pelo sensor. Pode ser baixada nesse link: https://www.vishay.com/docs/84310/designingveml6070.pdf. Para estimar a energia por trás da radiação UV e o nível de risco associado a ela, o sensor VEML6070 simplesmente lê o valor da irradiância e o compara com valores predefinidos, conforme mostrado na tabela abaixo. Esses valores são estimados, tendo o cuidado de pesar a intensidade da irradiância de acordo com o comprimento de onda e desempenho de resposta do VEML6070.
 
 <img src="https://github.com/carimeb/LUVproject/blob/main/images/uvIndexSheet.png" width="700" height="150">
 
