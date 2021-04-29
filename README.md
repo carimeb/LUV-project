@@ -1,4 +1,4 @@
-# LuV - Light UV Project 
+# LUV - Light UV Project 
 _A portable IoT device that sends a Telegram message informing the measured UV index and is connected to a database in [ThingSpeak](https://thingspeak.com/). That's my final project to the course 'Fundamentals of IoT' in University of Sao Paulo. See the code and the read.md file in https://github.com/carimeb/LUVproject_
 
 A incidência de raios ultravioletas (UV) na cidade de Sao Paulo é alta durante quase todo o ano. Até mesmo no inverno seus níveis elevados  
